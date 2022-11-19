@@ -2,5 +2,5 @@
 
 int	main()
 {
-	printf("%-10d", 23);
+	printf("%#012x",23);
 }
