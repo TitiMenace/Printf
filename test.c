@@ -1,6 +1,12 @@
 #include <stdio.h>
 
+
 int	main()
 {
-	printf("%#012x",23);
+	printf("% 7d\n", 22);
+	printf("% 7i\n", 22);
+	printf("% 7u\n", 22);
+	printf("% 7p\n", "22");
+	printf("% 7s\n", "22");
+	printf("% 7x\n", 22);
 }
