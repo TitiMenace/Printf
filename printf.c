@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/01 14:25:01 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:05:42 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ int	ft_printf(const char *str,...)
 			return (count); 
 		}
 		else
-			fill_buff(&i, &j,str);
+			va_end(args);
+			return (count + fill_buff(&i, &j, str));
 	}
 	else
 	{

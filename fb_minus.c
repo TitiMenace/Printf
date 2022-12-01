@@ -6,11 +6,11 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/01 14:14:48 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:24:34 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	fb_minus(char *buffer, int i, int j, char *str)
+int	fb_minus(char *buffer, int i, int j, char *str)
 {
 	int	count;
 	int	count2;
@@ -35,21 +35,21 @@ void	fb_minus(char *buffer, int i, int j, char *str)
 		ft_strcat(" ", buffer);
 		count++;
 	}
-	count2 = 0;
+	count2 = get_len(va_list args, *j, str);
 	if (str[j] != s)
 	{
-		while ( < check_precision(str, i, j))
+		while ( count2 < check_precision(str, i, j))
 		{
 			ft_strcat("0", buffer);
 			count2++;
 		}	
 	}
-	ft_strcat(ft_print_arg(...), buffer);
+	print_args(va_list args, str, &j);
 	count += count2;
-	while (temp2 + ft_strlen(printarg) < check_width_field(str, i, j))
+	while ( count < check_width_field(str, i, j))
 	{
 		ft_strcat(" ", buffer);
 		count++;
-	}	
+	}
+	return (count)	
 }
-
