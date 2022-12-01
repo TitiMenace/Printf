@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 11:01:27 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/01 11:20:13 by tschecro         ###   ########.fr       */
+/*   Created: 2022/12/01 10:42:12 by tschecro          #+#    #+#             */
+/*   Updated: 2022/12/01 12:08:40 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef PRINTF_H
-# define "printf.h"
-
 #include <unistd.h>
-#include <stdarg.h>
 
-struct  precision {
-    sign = { +, , #}
-    width = {}
+int	ft_putstr(char *str)
+{
+	
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }
-
-int	check_charset(char c, char *set);
-int	ft_strlen(char *str);
-
-#endif

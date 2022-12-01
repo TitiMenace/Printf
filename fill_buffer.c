@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   print_buffer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 11:01:27 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/01 11:20:13 by tschecro         ###   ########.fr       */
+/*   Created: 2022/12/01 14:04:44 by tschecro          #+#    #+#             */
+/*   Updated: 2022/12/01 14:21:26 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define "printf.h"
-
-#include <unistd.h>
-#include <stdarg.h>
-
-struct  precision {
-    sign = { +, , #}
-    width = {}
+int	fill_buff(int i, int j, char *str)
+{
+	if (check_flag_minus(i, j, str) == 1)
+		return (fb_minus(i, j, str));
+	if (check_flag_zero(i, j, str) == 1)
+		return (fb_zero(i, j, str));
+	else
+		return (fb_casual(i, j, str));	
 }
-
-int	check_charset(char c, char *set);
-int	ft_strlen(char *str);
-
-#endif

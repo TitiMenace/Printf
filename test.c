@@ -8,5 +8,5 @@ int	main()
 	printf("% 7u\n", 22);
 	printf("% 7p\n", "22");
 	printf("% 7s\n", "22");*/
-	printf("%010.2d\n", 42);
+	printf("yolescop%vins\n");
 }
