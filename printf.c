@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/01 15:05:42 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:30:12 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,7 @@ int	ft_printf(const char *str,...)
 	int	i;
 	int	j;
 	int	count;
-	//char	*buffer;
 
-	//buffer = malloc(sizeof(char) * 420);
 	va_start(args, str);
 	i = 0;
 	count = 0;
