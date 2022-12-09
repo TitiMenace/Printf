@@ -6,15 +6,22 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/01 17:56:14 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/09 22:02:43 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	fb_minus(int *i, int *j, char *str)
+
+int	fb_minus(va_list args, int *i, int *j, char *str)
 {
 	int	count;
 	int	count2;
+	unsigned long long int	temp;
+	int	temp2;
 
+	if (str[*j] == 'd' || str[*j] == 'i')
+		temp2 = define_negative(args, &j, str);
+	else
+		temp = define_args(args, &j, str);
 	count = 0;
 	if (check_flag_plus(&i, &j, str) == 1)
 	{
@@ -35,7 +42,17 @@ int	fb_minus(int *i, int *j, char *str)
 		write(1, " ", 1);
 		count++;
 	}
-	count2 = get_len(va_list args, &j, str);
+	if (str[*j] == 'd' || str[*j] == 'i')
+	{
+			if (temp2 < 0)
+			{
+				write(1, "-", 1);
+				count++;
+				temp2 = -temp2;
+			}
+			temp = (unsigned long long int)temp2;
+	}
+	count2 = get_len(&j, str);
 	if (str[*j] != 's')
 	{
 		while ( count2 < check_precision(str, &i, &j))
@@ -44,7 +61,7 @@ int	fb_minus(int *i, int *j, char *str)
 			count2++;
 		}	
 	}
-	print_args(va_list args, str, &j);
+	print_args(str, &j);
 	count += count2;
 	while (count < check_width_field(str, &i, &j))
 	{

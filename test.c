@@ -8,5 +8,7 @@ int	main()
 	printf("% 7u\n", 22);
 	printf("% 7p\n", "22");
 	printf("% 7s\n", "22");*/
-	printf("%#-5.3x", 42);
+	
+	int j = 42;
+	printf("%X", j);
 }

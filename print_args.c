@@ -6,20 +6,42 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 23:42:44 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/01 18:05:57 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:49:49 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	print_args(char *str, int *j)
+int	define_negative(va_list args, int *j, char *str)
 {
-	if (str[*j] == 'd')
-		return ((int)ft_putnbr(va_args(args, int)));
-	if (str[*j] == 'i')
-		return ((int)ft_putnbr(va_args(args, int)));
-	if (str[*j] == 'c')
-		return ((int)ft_putchar(va_args(args, char)));
-	return (0);
+	int	temp;
+
+	temp  =  va_args(args, int);
+	return temp;
 }
 
+unsigned long long int	define_args(va_list args, int *j, char *str)
+{
+	unsigned long long int	temp;
+
+	if (str[*j] == 'c')
+	{
+		temp = (unsigned long long int)va_args(args, int);
+		return (temp);
+	}
+	if (str[*j] == 'p')
+	{
+		temp = va_args(args, unsigned long int);
+		return (temp);
+	}
+	if (str[*j] == 's')
+	{
+		temp = (unsigned long long int)va_args(args, char *);
+		return (temp);
+	}
+	if (str[*j] == 'x' || str[*j] == 'X' || str[*j] == 'u')
+	{
+		temp = va_args(args, unsigned int);
+		return (temp);	
+	}
+}
 
 

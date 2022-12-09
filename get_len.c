@@ -1,13 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_len.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/09 19:26:05 by tschecro          #+#    #+#             */
+/*   Updated: 2022/12/09 21:58:21 by tschecro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	nb_len(int n)
 {
 	int count;
 
 	count = 0;
-	if (n < 0)
-	{
-		count++;
-		n = -n;
-	}
 	while (n != 0)
 	{
 		n / 10;
@@ -17,32 +24,21 @@ int	nb_len(int n)
 }
 
 
-int	get_len(va_list args,  int *j, char *str)
+int	get_len( unsigned long long int temp, int *j, char *str)
 {
-	int	i;
-	char	*tmp;
-
-	i = 0;
-	if (str[*j] == 'u')
-		return (nb_len((int)va_arg(args, unsigned int)));
-	if (str[*j] == 'd' || 'i')
-		return (nb_len(va_arg(args, int)));
+	if (str[*j] == 'i' || str[*j] == 'd' || str[*j] == 'u')
+		return (nb_len((int)temp));
+	if (str[*j] == 's')
+		return (strlen((char *)temp));
 	if (str[*j] == 'c')
 		return (1);
-	if (str[*j] == 's')
-		return (ft_strlen(va_args(args, char)));
 	if (str[*j] == 'p')
 	{
-		tmp = putnbr_hexa(va_args, int);
-		while (tmp[i])
-			i++;
-		return (i);
+
 	}
-	if (str[*j] == 'x' || 'X')
-		tmp = putnbr_hexa(va_args, int)
-		while (tmp[i])
-			i++;
-		return (i);
-	return (i);
+	if (str[*j] == 'x' || str[j] == 'X')
+	{
+		
+	}
 
 }
