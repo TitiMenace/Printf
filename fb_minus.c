@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/09 22:02:43 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/09 23:35:40 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	fb_minus(va_list args, int *i, int *j, char *str)
 			}
 			temp = (unsigned long long int)temp2;
 	}
-	count2 = get_len(&j, str);
+	count2 = get_len(temp, &j, str);
 	if (str[*j] != 's')
 	{
 		while ( count2 < check_precision(str, &i, &j))
@@ -61,7 +61,12 @@ int	fb_minus(va_list args, int *i, int *j, char *str)
 			count2++;
 		}	
 	}
-	print_args(str, &j);
+	else
+	{
+		while (check_precision(str, &i, &j) < count2)
+			count2--;
+	}
+	ft_print_args(str, &j, &i, temp, count2);
 	count += count2;
 	while (count < check_width_field(str, &i, &j))
 	{

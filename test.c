@@ -9,6 +9,6 @@ int	main()
 	printf("% 7p\n", "22");
 	printf("% 7s\n", "22");*/
 	
-	int j = 42;
-	printf("%X", j);
+	int j = -42;
+	printf("%x", j);
 }

@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:48:11 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/21 04:49:27 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/09 23:32:39 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_precision(char *str, int *i, int *j)
 		}
 		temp++;
 	}
-	return (0);
+	return (-1);
 }
 
 int	check_width_field(char *str, int *i, int *j)
