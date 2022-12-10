@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 04:11:38 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 05:39:57 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_printf(const char *str,...)
 	va_start(args, str);
 	i = 0;
 	count = 0;
-	init_parse(str, &i, &count); //protection si chaine nulle
+	init_parse(str, &i, &count);
 	j = i;
 	if (str[i] == '\0')
 	{
@@ -50,7 +50,7 @@ int	ft_printf(const char *str,...)
 	if (second_parse(&j, str) == 0 )
 		count = count + (ft_putstr(&str[i]));
 	else
-		count += fill_buffer(args, &i, &j, str);
+		count += fill_buffer(args, i, j, str);
 	va_end(args);
 	return (count);
 }
