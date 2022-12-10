@@ -6,9 +6,11 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 10:57:46 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 00:35:46 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 04:12:04 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "printf.h"
 
 int	check_charset(char c, char *set)
 {

@@ -6,9 +6,11 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 23:42:44 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 00:30:57 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 04:06:22 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "printf.h"
 
 int	define_negative(va_list args)
 {

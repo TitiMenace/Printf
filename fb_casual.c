@@ -6,11 +6,13 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 03:02:28 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 04:06:51 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	fb_casual(char *str, int *i, int *j, char *buffer)
+#include "printf.h"
+
+int	fb_casual(char *str, int *i, int *j, char *buffer)
 {
 	int	count;
 	int	len_arg;

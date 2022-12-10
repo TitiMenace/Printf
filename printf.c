@@ -6,14 +6,11 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 01:02:29 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 04:11:38 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-#include <stddef.h>
-#include <stdlib.h>
+#include "printf.h"
 
 void	init_parse(const char *str, int *i, int *count)
 {

@@ -6,9 +6,11 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:48:11 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/09 23:32:39 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 04:06:00 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "printf.h"
 
 int	small_atoi(char *str, int *i)
 {

@@ -6,9 +6,11 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:04:44 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 00:28:56 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 04:08:05 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "printf.h"
 
 int	fill_buffer(va_list args, int *i, int *j, char *str)
 {

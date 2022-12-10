@@ -6,9 +6,12 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 22:59:18 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 01:31:28 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 04:11:11 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "printf.h"
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
