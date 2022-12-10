@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_args.c                                       :+:      :+:    :+:   */
+/*   define_args.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 23:42:44 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/09 21:49:49 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 00:30:57 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	define_negative(va_list args, int *j, char *str)
+int	define_negative(va_list args)
 {
 	int	temp;
 
-	temp  =  va_args(args, int);
-	return temp;
+	temp = va_args(args, int);
+	return (temp);
 }
 
 unsigned long long int	define_args(va_list args, int *j, char *str)

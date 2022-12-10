@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 22:59:18 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/09 23:38:18 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 01:31:28 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 void	ft_putchar(char c)
@@ -60,7 +60,7 @@ int	ft_putaddress(unsigned long long int temp)
 	count = 0;
 	if (temp >= 16)
 		count += ft_hexa_len(temp / 16);
-	count += write(1, &hexa[nb % 16], 1);
+	count += write(1, &base[nb % 16], 1);
 	return (count);
 
 }
@@ -86,10 +86,7 @@ int	ft_print_args(char *str, int *j, int *i, unsigned long long int temp, int co
 		return (ft_nb_len((int)temp));
 	}
 	if (str[*j] == 'c')
-	{
-		ft_putchar((char)temp);
-		return (1);
-	}
+		return (ft_putchar((char)temp));
 	if (str[*j] == 'x')
 		return (ft_putnbr_hexa(unsigned int(temp)));
 	if (str[*j] == 'X')
@@ -97,10 +94,5 @@ int	ft_print_args(char *str, int *j, int *i, unsigned long long int temp, int co
 	if (str[*j] == 'p')
 		return (ft_putaddress(temp));
 	if (str[*j] == 's')
-	{
-		if (check_precision(str, &i, &j) < 0)
-			return (ft_putstr((char *)temp));
-		else
-			return ft_putnstr((char *)temp, count);
-	}
+		return ft_putnstr((char *)temp, count);
 }

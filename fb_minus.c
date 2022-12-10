@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/09 23:35:40 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 00:47:17 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	fb_minus(va_list args, int *i, int *j, char *str)
 	int	temp2;
 
 	if (str[*j] == 'd' || str[*j] == 'i')
-		temp2 = define_negative(args, &j, str);
+		temp2 = define_negative(args);
 	else
 		temp = define_args(args, &j, str);
 	count = 0;
@@ -55,7 +55,7 @@ int	fb_minus(va_list args, int *i, int *j, char *str)
 	count2 = get_len(temp, &j, str);
 	if (str[*j] != 's')
 	{
-		while ( count2 < check_precision(str, &i, &j))
+		while (count2 < check_precision(str, &i, &j))
 		{
 			write(1, "0", 1);
 			count2++;
@@ -73,5 +73,5 @@ int	fb_minus(va_list args, int *i, int *j, char *str)
 		write(1, " ", 1);
 		count++;
 	}
-	return (count)	
+	return (count);	
 }
