@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 07:02:46 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 08:39:59 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ void	init_parse(const char *str, int *i, int *count)
 
 int	second_parse(int *j, const char *str)
 {
-	while (str[*j] && (check_charset(str[*j], "cdiupsxX%") == 0))
+	while (str[*j] && (check_charset(str[*j], "cdiupsxX") == 0))
 		(*j)++;
 	if (check_charset(str[*j], "cdiupsxX%") == 1)
 		return (1);
 	return (0);
 }	
+
 int	ft_printf(const char *str,...)
 {
 	va_list args;
@@ -47,10 +48,13 @@ int	ft_printf(const char *str,...)
 		va_end(args);
 		return(count);
 	}	
-	if (second_parse(&j, str) == 0 )
+	if (second_parse(&j, str) == 0)
 		count = count + (ft_putstr(&str[i]));
 	else
+	{
+		printf("yo");
 		count += fill_buffer(args, i, j, str);
+	}
 	va_end(args);
 	return (count);
 }

@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_buffer.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 14:04:44 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 08:43:11 by tschecro         ###   ########.fr       */
+/*   Created: 2022/12/10 07:31:44 by tschecro          #+#    #+#             */
+/*   Updated: 2022/12/10 07:45:45 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	fill_buffer(va_list args, int i, int j, const char *str)
+int	main()
 {
-	if (check_flag_minus(i, j, str) == 1)
-		return (fb_minus(args, i, j, str));
-	if (check_flag_zero(i, j, str) == 1)
-		return (fb_zero(args, str, i, j));
-	else
-	{
-		printf("yo");
-		return (fb_casual(args, str, i, j));
-	}
+	ft_printf("Bonjour%d", 42);
 }

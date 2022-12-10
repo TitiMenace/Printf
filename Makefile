@@ -6,7 +6,7 @@
 #    By: tschecro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 02:48:07 by tschecro          #+#    #+#              #
-#    Updated: 2022/12/10 07:02:00 by tschecro         ###   ########.fr        #
+#    Updated: 2022/12/10 07:35:46 by tschecro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ HEADER		= 	printf.h
 
 OBJ		=	$(SRC:.c=.o)
 
-NAME		=	printf.a	
+NAME		=	libprintf.a	
 
 all		:	$(NAME)
 
