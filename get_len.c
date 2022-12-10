@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:26:05 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 07:19:26 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:23:28 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_nb_len(int n)
 	count = 0;
 	while (n != 0)
 	{
-		n / 10;
+		n /= 10;
 		count++;
 	}
 	return (count);
@@ -58,7 +58,8 @@ int	ft_get_len(unsigned long long int temp, int j, const char *str)
 	if (str[j] == 'c')
 		return (1);
 	if (str[j] == 'p')
-		return (ft_hexa_len(temp) + 2)
+		return (ft_hexa_len(temp) + 2);
 	if (str[j] == 'x' || str[j] == 'X')
-		return (ft_hexa_len(temp);
+		return (ft_hexa_len(temp));
+	return (0);
 }

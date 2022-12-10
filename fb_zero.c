@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:39:41 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 07:15:17 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:28:11 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	fb_zero(va_list args, const char *str, int i, int j)
 		if (str[j] == 'x')
 			write(1, "0x", 2);
 		count += 2;
-		else
+		if (str[j] == 'X')
 			write(1, "0X", 2);
 		count += 2;
 	}

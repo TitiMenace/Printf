@@ -6,13 +6,13 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 07:06:57 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 07:16:40 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:24:27 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	check_flag_0(int i, int j, const char *str)
+int	check_flag_zero(int i, int j, const char *str)
 {
 	int	temp;
 

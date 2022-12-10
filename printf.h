@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2022/12/10 07:19:48 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:24:53 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	fb_minus(va_list args, int i, int j, const char *str);
 /* -------------------------------------------------------------------------- */
 /*                         FILE = ./flags_fonction.c                          */
 /* -------------------------------------------------------------------------- */
-int	check_flag_0(int i, int j, const char *str);
+int	check_flag_zero(int i, int j, const char *str);
 int	check_flag_minus(int i, int j, const char *str);
 int	check_flag_plus(int i, int j, const char *str);
 int	check_flag_blank(int i, int j, const char *str);

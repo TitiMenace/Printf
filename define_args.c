@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 23:42:44 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 07:13:26 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:27:40 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	define_negative(va_list args)
 {
 	int	temp;
 
-	temp = va_args(args, int);
+	temp = va_arg(args, int);
 	return (temp);
 }
 
@@ -26,24 +26,25 @@ unsigned long long int	define_args(va_list args, int j, const char *str)
 
 	if (str[j] == 'c')
 	{
-		temp = (unsigned long long int)va_args(args, int);
+		temp = (unsigned long long int)va_arg(args, int);
 		return (temp);
 	}
 	if (str[j] == 'p')
 	{
-		temp = va_args(args, unsigned long int);
+		temp = va_arg(args, unsigned long int);
 		return (temp);
 	}
 	if (str[j] == 's')
 	{
-		temp = (unsigned long long int)va_args(args, char *);
+		temp = (unsigned long long int)va_arg(args, char *);
 		return (temp);
 	}
 	if (str[j] == 'x' || str[j] == 'X' || str[j] == 'u')
 	{
-		temp = va_args(args, unsigned int);
+		temp = va_arg(args, unsigned int);
 		return (temp);	
 	}
+	return (0);
 }
 
 
