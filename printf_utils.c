@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 10:57:46 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 04:12:04 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:09:15 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,17 @@ int	check_charset(char c, char *set)
 		i++;
 	}
 	return (0);
+}
+
+int	ft_putstr(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }

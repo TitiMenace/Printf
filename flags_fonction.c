@@ -6,13 +6,13 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 07:06:57 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 05:41:37 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:16:40 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	check_flag_0(int i, int j, char *str)
+int	check_flag_0(int i, int j, const char *str)
 {
 	int	temp;
 
@@ -26,7 +26,7 @@ int	check_flag_0(int i, int j, char *str)
 	return (0);
 }
 
-int	check_flag_minus(int i, int j, char *str)
+int	check_flag_minus(int i, int j, const char *str)
 {
 	int	temp;
 
@@ -40,7 +40,7 @@ int	check_flag_minus(int i, int j, char *str)
 	return (0);
 }
 
-int	check_flag_plus(int i, int j, char *str)
+int	check_flag_plus(int i, int j, const char *str)
 {
 	int	temp;
 
@@ -54,7 +54,7 @@ int	check_flag_plus(int i, int j, char *str)
 	return (0);
 }
 
-int	check_flag_blank(int i, int j, char *str)
+int	check_flag_blank(int i, int j, const char *str)
 {
 	int	temp;
 
@@ -68,7 +68,7 @@ int	check_flag_blank(int i, int j, char *str)
 	return (0);
 }
 
-int	check_flag_hashtag(int i, int j, char *str)
+int	check_flag_hashtag(int i, int j, const char *str)
 {
 	int	temp;
 

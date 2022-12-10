@@ -6,48 +6,44 @@
 #    By: tschecro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 02:48:07 by tschecro          #+#    #+#              #
-#    Updated: 2022/11/19 03:13:55 by tschecro         ###   ########.fr        #
+#    Updated: 2022/12/10 07:02:00 by tschecro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME = libftprintf.a
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
+SRC		=	./print_args.c ./fb_casual.c ./fb_minus.c ./flags_fonction.c \
+			./printf.c ./printf_utils.c ./get_len.c ./fill_buffer.c \
+			./define_args.c ./fb_zero.c ./check_width.c
 
-FILES = ft_printf
+HEADER		= 	printf.h
 
-SRCS_DIR = ./
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
+OBJ		=	$(SRC:.c=.o)
 
-OBJS_DIR = ./
-OBJS = $(SRCS:.c=.o)
+NAME		=	printf.a	
 
-LIBFT_DIR = libft/
-LIBFT_NAME = libft.a
+all		:	$(NAME)
 
-$(NAME): $(OBJS)
-    $(AR) $@ $<
+$(NAME)		:	$(OBJ)
+			@ar rc $(NAME) $(OBJ)
+			@ranlib $(NAME)
+			@echo "\033[1;32m\nDone!\033[0m"
 
-$(OBJS): makelibft
+%.o		:	%.c $(HEADER)
+			@printf "\033[0;33mGenerating libft object... %-38.38s \r" $@
+			@$(CC) -Wall -Wextra -Werror -c $< -o $@
 
-%.o: %.c
-    $(CC) $(CFLAGS) -c $< ${LIBFT_DIR}${LIBFT_NAME} -o $@
+clean		:
+			rm -f $(OBJ)
 
-makelibft:
-    cd ${LIBFT_DIR} && make
+fclean		:	clean
+			rm -f $(NAME)
 
-fcleanlibft:
-    cd ${LIBFT_DIR} && make fclean
+re		:	fclean all
 
-all: $(NAME)
+bonus		:	$(OBJ)
+			@ar rc $(NAME) $(OBJ)
+			@ranlib $(NAME)
+			@echo "\033[1;32m\nDone!\033[0m"
 
-clean: fcleanlibft
-    rm -f $(OBJS) $(OBJS_BONUS)
+.PHONY		:	all clean fclean re
+		
 
-fclean: clean
-    rm -f $(NAME)
-
-re: clean all
-
-.PHONY: all clean fclean re

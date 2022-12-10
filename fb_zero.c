@@ -6,13 +6,13 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:39:41 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 05:54:41 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:15:17 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	fb_zero(va_list args, char *str, int i, int j)
+int	fb_zero(va_list args, const char *str, int i, int j)
 {
 	int	count;
 	unsigned long long int	temp;

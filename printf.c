@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 05:39:57 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:02:46 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	ft_printf(const char *str,...)
 	j = i;
 	if (str[i] == '\0')
 	{
-		va_end(args)
-		return(count)
+		va_end(args);
+		return(count);
 	}	
 	if (second_parse(&j, str) == 0 )
 		count = count + (ft_putstr(&str[i]));

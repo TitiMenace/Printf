@@ -6,13 +6,13 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:48:11 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 05:50:11 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:13:15 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	small_atoi(char *str, int i)
+int	small_atoi(const char *str, int i)
 {
 	int	k;
 
@@ -25,7 +25,7 @@ int	small_atoi(char *str, int i)
 	return (k);
 }
 
-int	check_precision(char *str, int i, int j)
+int	check_precision(const char *str, int i, int j)
 {
 	while (i < j)
 	{
@@ -39,7 +39,7 @@ int	check_precision(char *str, int i, int j)
 	return (-1);
 }
 
-int	check_width_field(char *str, int i, int j)
+int	check_width_field(const char *str, int i, int j)
 {
 	while (i < j && str[i] != '.')
 	{

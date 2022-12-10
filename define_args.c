@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 23:42:44 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 05:44:50 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:13:26 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	define_negative(va_list args)
 	return (temp);
 }
 
-unsigned long long int	define_args(va_list args, int j, char *str)
+unsigned long long int	define_args(va_list args, int j, const char *str)
 {
 	unsigned long long int	temp;
 

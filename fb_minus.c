@@ -6,13 +6,13 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 06:59:33 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:15:03 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	fb_minus(va_list args, int i, int j, char *str)
+int	fb_minus(va_list args, int i, int j, const char *str)
 {
 	int	count;
 	int	count2;
