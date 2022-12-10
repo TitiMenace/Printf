@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 05:45:59 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 06:59:33 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	fb_minus(va_list args, int i, int j, char *str)
 		if (str[j] == 'x')
 			write(1, "0x", 2);
 		count += 2;
-		else
+		if (str[j] == 'X')
 			write(1, "0X", 2);
 		count += 2;
 	}
