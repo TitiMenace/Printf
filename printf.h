@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2022/12/10 07:12:48 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 07:19:48 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_putstr(const char *str);
 int	ft_strlen(char *str);
 int	ft_hexa_len(unsigned long long int temp);
 int	ft_nb_len(int n);
-int	ft_get_len( unsigned long long int temp, int j, char *str);
+int	ft_get_len( unsigned long long int temp, int j, const char *str);
 
 /* -------------------------------------------------------------------------- */
 /*                           FILE = ./fill_buffer.c                           */
