@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2022/12/10 03:49:05 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 05:17:46 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int	ft_putnbr_hexa(unsigned int nb);
 int	ft_putnbr_hexa_maj(unsigned int nb);
 int	ft_putaddress(unsigned long long int temp);
 int	ft_putnstr(char *str, int n);
-int	ft_print_args(char *str, int *j, int *i, unsigned long long int temp, int count);
+int	ft_print_args(char *str, int *j, unsigned long long int temp, int count);
 
 /* -------------------------------------------------------------------------- */
 /*                            FILE = ./fb_casual.c                            */
 /* -------------------------------------------------------------------------- */
-void	fb_casual(char *str, int *i, int *j, char *buffer);
+int	fb_casual(va_list args, char *str, int *i, int *j);
 
 /* -------------------------------------------------------------------------- */
 /*                            FILE = ./fb_minus.c                             */
@@ -80,7 +80,7 @@ unsigned long long int	define_args(va_list args, int *j, char *str);
 /* -------------------------------------------------------------------------- */
 /*                             FILE = ./fb_zero.c                             */
 /* -------------------------------------------------------------------------- */
-void	fb_zero(char *str, int *i, int *j, char *buffer);
+int	fb_zero(va_list args, char *str, int *i, int *j);
 
 /* -------------------------------------------------------------------------- */
 /*                           FILE = ./check_width.c                           */

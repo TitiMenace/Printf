@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 04:07:13 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 04:57:45 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	fb_minus(va_list args, int *i, int *j, char *str)
 		while (check_precision(str, &i, &j) < count2)
 			count2--;
 	}
-	ft_print_args(str, &j, &i, temp, count2);
+	ft_print_args(str, &j, temp, count2);
 	count += count2;
 	while (count < check_width_field(str, &i, &j))
 	{

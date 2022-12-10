@@ -6,13 +6,13 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 04:06:51 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 05:12:41 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	fb_casual(char *str, int *i, int *j, char *buffer)
+int	fb_casual(va_list args, char *str, int *i, int *j)
 {
 	int	count;
 	int	len_arg;
@@ -74,6 +74,6 @@ int	fb_casual(char *str, int *i, int *j, char *buffer)
 			count++
 		}
 	}
-	ft_print_args(str, &j, &i, temp, len_arg);
+	ft_print_args(str, &j, temp, len_arg);
 	return (count);
 }

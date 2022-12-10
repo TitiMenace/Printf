@@ -6,13 +6,13 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:39:41 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 04:07:43 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/10 05:13:11 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	fb_zero(char *str, int *i, int *j, char *buffer)
+int	fb_zero(va_list args, char *str, int *i, int *j)
 {
 	int	count;
 	unsigned long long int	temp;
@@ -58,6 +58,6 @@ int	fb_zero(char *str, int *i, int *j, char *buffer)
 		write(1, "0", 1);
 		count++;
 	}
-	ft_print_args(str, &j, &i, temp, 0);
+	ft_print_args(str, &j, temp, 0);
 	return (count);
 }
