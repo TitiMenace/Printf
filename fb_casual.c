@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 05:51:49 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 06:20:43 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,13 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	int	len_arg;
 	unsigned long long int	temp;
 	int	temp2;
+	int	pre_count;
 		
 	temp2 = 0;
 	if (str[j] == 'd' || str[j] == 'i')
-	{
 		temp2 = define_negative(args);
-	}
 	else
-	{
 		temp = define_args(args, j, str);
-	}
 	count = 0;
 	if (check_flag_plus(i, j, str) == 1)
 		count++;	
@@ -43,11 +40,16 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	if (temp2 > 0)
 		temp = (unsigned long long int)temp2;
 	len_arg = ft_get_len(temp, j, str);
+	
 	if (str[j] != 's')
 	{	
-		while (len_arg < check_precision(str, i, j))
-			count++;
 		count += len_arg;
+		pre_count = len_arg;
+		while (pre_count < check_precision(str, i, j))
+		{
+			pre_count++;
+			count++;
+		}
 		while (count < check_width_field(str, i, j))
 		{
 			write(1, " ", 1);
@@ -66,12 +68,16 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 			write(1, " ", 1);
 		if (temp2 < 0)
 			write(1, "-", 1);
-		while (len_arg < check_precision(str, i, j))
+		pre_count = len_arg;
+		while (pre_count < check_precision(str, i, j))
+		{
 			write(1, "0", 1);
+			pre_count++;
+		}
 	}
 	else
 	{
-		while (check_precision(str, i, j) > 0 && (check_precision(str, i, j) < len_arg))
+		while (check_precision(str, i, j) > 0 && (check_precision(str, i, j) <= len_arg))
 			len_arg--;
 		count += len_arg;
 		while(count < check_width_field(str, i, j))
