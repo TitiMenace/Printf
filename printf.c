@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 04:21:14 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 05:43:09 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ int	ft_printf(const char *str,...)
 
 int	main()
 {
-	ft_printf("Wesh %s", "la zone");
+	ft_printf("%3d", 42);
+
 }

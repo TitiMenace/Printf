@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 04:20:32 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 05:51:49 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	}
 	if (temp2 > 0)
 		temp = (unsigned long long int)temp2;
-	else
-		len_arg = ft_get_len(temp, j, str);
+	len_arg = ft_get_len(temp, j, str);
 	if (str[j] != 's')
 	{	
 		while (len_arg < check_precision(str, i, j))

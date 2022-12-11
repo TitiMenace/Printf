@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 22:59:18 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 02:13:51 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 04:55:56 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_putnbr_hexa_maj(unsigned int nb)
 	return (count);
 }
 
-int	ft_putaddress(unsigned long long int temp)
+static int	ft_putadd(unsigned long long int temp)
 {
 	char	*base;
 	int	count;
@@ -62,10 +62,16 @@ int	ft_putaddress(unsigned long long int temp)
 	base = "0123456789abcdef";
 	count = 0;
 	if (temp >= 16)
-		count += ft_hexa_len(temp / 16);
+		count += ft_putadd(temp / 16);
 	count += write(1, &base[temp % 16], 1);
 	return (count);
 
+}
+
+int	ft_putaddress(unsigned long long int temp)
+{
+	write(1, "0x", 2);
+	return (ft_putadd(temp) + 2);
 }
 
 int	ft_putnstr(char *str, int n)
@@ -94,11 +100,13 @@ int	ft_print_args(const char *str, int j, unsigned long long int temp, int count
 		return (1);
 	}
 	if (str[j] == 'x')
-		return (ft_putnbr_hexa((unsigned int)temp));
+		return (ft_putnbr_hexa(temp));
 	if (str[j] == 'X')
 		return (ft_putnbr_hexa_maj((unsigned int)temp));
 	if (str[j] == 'p')
+	{
 		return (ft_putaddress(temp));
+	}
 	if (str[j] == 's')
 		return ft_putnstr((char *)temp, count);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:48:11 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 07:28:37 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 05:50:32 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ int	check_width_field(const char *str, int i, int j)
 	while (i < j && str[i] != '.')
 	{
 		if (str[i] >= '1' && str[i] <= '9')
-		{
-			i++;
 			return (small_atoi(str, i));
-		}
 		i++;
 	}
 	return (0);
