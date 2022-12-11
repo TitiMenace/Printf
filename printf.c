@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 07:46:34 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 07:59:37 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ int	ft_printf(const char *str,...)
 int	main()
 {
 	
-	int i = ft_printf("---% 4d", 32);
+	int i = ft_printf("---%-+.3d", 42);
 	printf("\n\n");
-	int j = printf("---% 4d", 32);
+	int j = printf("---%-+.3d", 42);
 	printf("\n%d%d", i, j);
 }

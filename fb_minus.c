@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 05:39:26 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 07:56:16 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 int	fb_minus(va_list args, int i, int j, const char *str)
 {
 	int	count;
-	int	count2;
+	int	len_arg;
 	unsigned long long int	temp;
 	int	temp2;
+	int	pre_count;
 
 	if (str[j] == 'd' || str[j] == 'i')
 		temp2 = define_negative(args);
@@ -53,22 +54,23 @@ int	fb_minus(va_list args, int i, int j, const char *str)
 			}
 			temp = (unsigned long long int)temp2;
 	}
-	count2 = ft_get_len(temp, j, str);
+	len_arg = ft_get_len(temp, j, str);
+	pre_count = len_arg;
 	if (str[j] != 's')
 	{
-		while (count2 < check_precision(str, i, j))
+		while (pre_count < check_precision(str, i, j))
 		{
 			write(1, "0", 1);
-			count2++;
+			pre_count++;
 		}	
 	}
 	else
 	{
-		while (check_precision(str, i, j) < count2)
-			count2--;
+		while (check_precision(str, i, j) < len_arg)
+			len_arg--;
 	}
-	ft_print_args(str, j, temp, count2);
-	count += count2;
+	count += pre_count;
+	ft_print_args(str, j, temp, len_arg);
 	while (count < check_width_field(str, i, j))
 	{
 		write(1, " ", 1);
