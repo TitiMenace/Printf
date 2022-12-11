@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 02:24:33 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 04:20:32 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	int	len_arg;
 	unsigned long long int	temp;
 	int	temp2;
-	char	*temp3;
-	
+		
 	temp2 = 0;
 	if (str[j] == 'd' || str[j] == 'i')
 	{
 		temp2 = define_negative(args);
 	}
-	if (str[j] == 's')
-		temp3 = define_string(args);
 	else
 	{
 		temp = define_args(args, j, str);
@@ -43,12 +40,10 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 		count++;
 		temp = (unsigned long long int)-temp2;
 	}
-	if (temp2 >= 0)
+	if (temp2 > 0)
 		temp = (unsigned long long int)temp2;
-	if (str[j] != 's')
-		len_arg = ft_get_len(temp, j, str);
 	else
-		len_arg = ft_strlen(temp3);
+		len_arg = ft_get_len(temp, j, str);
 	if (str[j] != 's')
 	{	
 		while (len_arg < check_precision(str, i, j))
@@ -77,7 +72,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	}
 	else
 	{
-		while (check_precision > 0 && (check_precision(str, i, j) < len_arg))
+		while (check_precision(str, i, j) > 0 && (check_precision(str, i, j) < len_arg))
 			len_arg--;
 		count += len_arg;
 		while(count < check_width_field(str, i, j))
@@ -86,9 +81,6 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 			count++;
 		}
 	}
-	if (str[j] != 's')
-		ft_print_args(str, j, temp, len_arg);
-	else
-		ft_putnstr(temp3, count);
+	ft_print_args(str, j, temp, len_arg);
 	return (count);
 }

@@ -6,18 +6,13 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 23:42:44 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 02:23:26 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 04:18:15 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-char	*define_string(va_list args)
-{
-	char	*temp;
-	temp = va_arg(args, char *);
-	return (temp);
-}
+
 
 int	define_negative(va_list args)
 {

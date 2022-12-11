@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2022/12/11 02:24:09 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 04:20:49 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int	fill_buffer(va_list args, int i, int j, const char *str);
 /* -------------------------------------------------------------------------- */
 int	define_negative(va_list args);
 unsigned long long int	define_args(va_list args, int j, const char *str);
-char	*define_string(va_list args);
 
 /* -------------------------------------------------------------------------- */
 /*                             FILE = ./fb_zero.c                             */
