@@ -6,11 +6,11 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:26:05 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 02:13:09 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 10:49:03 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_strlen(char *str)
 {
