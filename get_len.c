@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:26:05 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/10 10:34:01 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 02:13:09 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,13 @@ int	ft_nb_len(int n)
 
 int	ft_get_len(unsigned long long int temp, int j, const char *str)
 {
+
 	if (str[j] == 'i' || str[j] == 'd' || str[j] == 'u')
 		return (ft_nb_len((int)temp));
 	if (str[j] == 's')
+	{
 		return (ft_strlen((char *)temp));
+	}
 	if (str[j] == 'c')
 		return (1);
 	if (str[j] == 'p')
