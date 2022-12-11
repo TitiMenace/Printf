@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 22:59:18 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 04:55:56 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 07:43:01 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	ft_putnstr(char *str, int n)
 	int	i;
 
 	i = 0;
-	while (str[i] && i <= n)
+	while (str[i] && i < n)
 	{
 		write(1, &str[i], 1);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 06:20:43 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 07:41:52 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	if (str[j] != 's')
 	{	
 		count += len_arg;
+		
 		pre_count = len_arg;
 		while (pre_count < check_precision(str, i, j))
 		{
@@ -77,7 +78,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	}
 	else
 	{
-		while (check_precision(str, i, j) > 0 && (check_precision(str, i, j) <= len_arg))
+		while (check_precision(str, i, j) > 0 && (check_precision(str, i, j) < len_arg))
 			len_arg--;
 		count += len_arg;
 		while(count < check_width_field(str, i, j))
