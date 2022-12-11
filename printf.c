@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 07:59:37 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/11 10:06:21 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	init_parse(const char *str, int *i, int *count)
 
 int	second_parse(int *j, const char *str)
 {
-	while (str[*j] && (check_charset(str[*j], "cdiupsxX") == 0))
+	while (str[*j] && (check_charset(str[*j], "cdiupsxX%") == 0))
 		(*j)++;
-	if (check_charset(str[*j], "cdiupsxX") == 1)
+	if (check_charset(str[*j], "cdiupsxX%") == 1)
 		return (1);
 	return (0);
 }	
@@ -43,20 +43,22 @@ int	ft_printf(const char *str,...)
 	va_start(args, str);
 	i = 0;
 	count = 0;
-	init_parse(str, &i, &count);
-	j = i;
-	if (str[i] == '\0')
+	while (str[i])
 	{
-		va_end(args);
-		return(count);
-	}
-	if (second_parse(&j, str) == 0)
-	{
-		count = count + (ft_putstr(&str[i]));
-	}
-	else
-	{
-		count += fill_buffer(args, i, j, str);
+		init_parse(str, &i, &count);
+		j = i;
+		if (str[i] == '%')
+		{
+			j++;
+			second_parse(&j, str);
+			if (check_charset(str[j], "cdiupsxX%") == 1)
+			{
+				count += fill_buffer(args, i, j, str);
+				i = j + 1;
+			}
+			else
+				init_parse(str, &i, &count);
+		}
 	}
 	va_end(args);
 	return (count);
@@ -65,8 +67,8 @@ int	ft_printf(const char *str,...)
 int	main()
 {
 	
-	int i = ft_printf("---%-+.3d", 42);
+	int i = ft_printf("--%dje ssui dans la moula", 24);
 	printf("\n\n");
-	int j = printf("---%-+.3d", 42);
+	int j = printf("--%dje ssui dans la moula", 24);
 	printf("\n%d%d", i, j);
 }
