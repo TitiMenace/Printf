@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 10:47:12 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/12 05:41:45 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,21 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	unsigned long long int	temp;
 	int	temp2;
 	int	pre_count;
-		
+	int	precision;
+
+	precision = check_precision(str, i, j);	
 	temp2 = 0;
 	if (str[j] == 'd' || str[j] == 'i')
 		temp2 = define_negative(args);
 	else
+	{
 		temp = define_args(args, j, str);
+		if ((char *)temp == NULL && str[j] == 's')
+		{
+			write(1, "(null)", 7);
+			return (7);
+		}
+	}
 	count = 0;
 	if (check_flag_plus(i, j, str) == 1)
 		count++;	
@@ -39,7 +48,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	}
 	if (temp2 > 0)
 		temp = (unsigned long long int)temp2;
-	len_arg = ft_get_len(temp, j, str);
+	len_arg = ft_get_len(temp, j, str, precision);
 	
 	if (str[j] != 's')
 	{	
@@ -78,10 +87,8 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	}
 	else
 	{
-		while (check_precision(str, i, j) > 0 && (check_precision(str, i, j) < len_arg))
-			len_arg--;
 		count += len_arg;
-		while(count < check_width_field(str, i, j))
+		while(check_width_field(str, i, j) >= 0&& count < check_width_field(str, i, j))
 		{
 			write(1, " ", 1);
 			count++;

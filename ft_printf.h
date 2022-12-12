@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2022/12/11 09:49:39 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/12 04:30:06 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ int	ft_putstr(const char *str);
 /* -------------------------------------------------------------------------- */
 /*                             FILE = ./get_len.c                             */
 /* -------------------------------------------------------------------------- */
-int	ft_strlen(char *str);
+int	ft_strlen(char *str, int precision);
 int	ft_hexa_len(unsigned long long int temp);
 int	ft_nb_len(int n);
-int	ft_get_len(unsigned long long int temp, int j, const char *str);
+int	ft_get_len(unsigned long long int temp, int j, const char *str, int precision);
 
 /* -------------------------------------------------------------------------- */
 /*                           FILE = ./fill_buffer.c                           */

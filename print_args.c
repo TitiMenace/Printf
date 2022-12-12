@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 22:59:18 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 10:49:48 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/12 05:24:14 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(unsigned int nb)
+void	ft_putnbr(unsigned int temp)
 {
+	unsigned int nb;
+
+	nb = temp;
 	if (nb <= 9)
 		ft_putchar(nb + '0');
 	else
@@ -108,6 +111,10 @@ int	ft_print_args(const char *str, int j, unsigned long long int temp, int count
 		return (ft_putaddress(temp));
 	}
 	if (str[j] == 's')
+	{
+		if ((char *)temp == 0)
+			return (0);
 		return ft_putnstr((char *)temp, count);
+	}
 	return (0);
 }

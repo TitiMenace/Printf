@@ -6,19 +6,27 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:26:05 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 10:49:03 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/12 05:22:20 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_strlen(char *str)
+int	ft_strlen(char *str, int precision)
 {
 	int	i;
 	
 	i = 0;
-	while (str[i])
-		i++;
+	if (precision >= 0)
+	{
+		while (i < precision && str[i])
+			i++;
+	}
+	else
+	{
+		while (str[i])
+			i++;
+	}
 	return (i);
 }
 
@@ -39,24 +47,31 @@ int	ft_hexa_len(unsigned long long int temp)
 int	ft_nb_len(int n)
 {
 	int count;
+	int nb;
 
 	count = 0;
-	while (n != 0)
+	nb = n;
+	while (nb != 0)
 	{
-		n /= 10;
+		nb /= 10;
 		count++;
 	}
 	return (count);
 }
 
-int	ft_get_len(unsigned long long int temp, int j, const char *str)
+int	ft_get_len(unsigned long long int temp, int j, const char *str, int precision)
 {
+
+	int	result;
 
 	if (str[j] == 'i' || str[j] == 'd' || str[j] == 'u')
 		return (ft_nb_len((int)temp));
 	if (str[j] == 's')
 	{
-		return (ft_strlen((char *)temp));
+		if ((char *)temp == 0)
+			return (0);
+		result = ft_strlen((char *)temp, precision);
+		return (result);
 	}
 	if (str[j] == 'c')
 		return (1);

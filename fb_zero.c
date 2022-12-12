@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:39:41 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 10:47:24 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/12 04:32:32 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	fb_zero(va_list args, const char *str, int i, int j)
 	int	count;
 	unsigned long long int	temp;
 	int	temp2;
+	int	precision;
 
+	precision = check_precision(str, i, j);
 	if (str[j] == 'd' || str[j] == 'i')
 		temp2 = define_negative(args);
 	else
@@ -52,7 +54,7 @@ int	fb_zero(va_list args, const char *str, int i, int j)
 			}
 			temp = (unsigned long long int)temp2;
 	}
-	count += ft_get_len(temp, j, str);
+	count += ft_get_len(temp, j, str, precision);
 	while (count < check_width_field(str, i, j))
 	{
 		write(1, "0", 1);

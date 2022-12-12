@@ -6,11 +6,12 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 10:50:50 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/12 05:28:05 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdlib.h>
 
 void	init_parse(const char *str, int *i, int *count)
 {
@@ -63,3 +64,17 @@ int	ft_printf(const char *str,...)
 	va_end(args);
 	return (count);
 }
+
+#include <stdio.h>
+
+/*int main	()
+{
+	int	i;
+	int	j;
+	
+	i = ft_printf(" NULL %s NULL ", NULL);
+	printf("\n\n");
+	j = printf(" NULL %s NULL ", NULL);
+	printf("\n");
+	printf("%d%d", i, j);
+}*/
