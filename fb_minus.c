@@ -21,11 +21,18 @@ int	fb_minus(va_list args, int i, int j, const char *str)
 	int	pre_count;
 	int	precision;
 
+	temp = 0;
 	precision = check_precision(str, i, j);
 	if (str[j] == 'd' || str[j] == 'i')
 		temp2 = define_negative(args);
 	else
 		temp = define_args(args, j, str);
+	if ((void *)temp == 0 && str[j] == 'p')
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+
 	count = 0;
 	if (check_flag_plus(i, j, str) == 1)
 	{
@@ -68,9 +75,10 @@ int	fb_minus(va_list args, int i, int j, const char *str)
 	}
 	else
 	{
-		while (check_precision(str, i, j) < len_arg)
+		while (precision >= 0 && precision < len_arg)
 			len_arg--;
 	}
+	
 	count += pre_count;
 	ft_print_args(str, j, temp, len_arg);
 	while (count < check_width_field(str, i, j))

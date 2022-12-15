@@ -65,14 +65,14 @@ int	ft_printf(const char *str,...)
 	return (count);
 }
 #include <stdio.h>
-
+#include <limits.h>
 /*int	main()
 {
 	int i;
 	int j;
-	i = ft_printf(" %u ", -1);
+	i = ft_printf("_%-11x_", (unsigned int)LONG_MAX + 1);
 	printf("\n\n");
-	j = printf(" %u ", -1);
+	j = printf("_%-11x_", (unsigned int)LONG_MAX + 1);
 	printf("\n\n");
 	printf("%d", i);
 	printf("\n\n");
