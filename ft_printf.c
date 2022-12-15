@@ -64,17 +64,17 @@ int	ft_printf(const char *str,...)
 	va_end(args);
 	return (count);
 }
-
 #include <stdio.h>
 
-/*int main	()
+/*int	main()
 {
-	int	i;
-	int	j;
-	
-	i = ft_printf(" NULL %s NULL ", NULL);
+	int i;
+	int j;
+	i = ft_printf(" %u ", -1);
 	printf("\n\n");
-	j = printf(" NULL %s NULL ", NULL);
-	printf("\n");
-	printf("%d%d", i, j);
+	j = printf(" %u ", -1);
+	printf("\n\n");
+	printf("%d", i);
+	printf("\n\n");
+	printf("%d", j);
 }*/

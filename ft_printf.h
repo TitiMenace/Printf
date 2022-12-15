@@ -67,7 +67,7 @@ int	ft_strlen(char *str, int precision);
 int	ft_hexa_len(unsigned long long int temp);
 int	ft_nb_len(int n);
 int	ft_get_len(unsigned long long int temp, int j, const char *str, int precision);
-
+int	ft_nb_u_len(unsigned int n);
 /* -------------------------------------------------------------------------- */
 /*                           FILE = ./fill_buffer.c                           */
 /* -------------------------------------------------------------------------- */

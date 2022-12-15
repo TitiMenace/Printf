@@ -39,6 +39,8 @@ unsigned long long int	define_args(va_list args, int j, const char *str)
 	if (str[j] == 's')
 	{
 		temp = (unsigned long long int)va_arg(args, char *);
+		if (temp == (unsigned long long int)NULL)
+				temp = (unsigned long long int)"(null)";
 		return (temp);
 	}
 	if (str[j] == 'x' || str[j] == 'X' || str[j] == 'u')

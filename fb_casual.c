@@ -22,6 +22,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	int	precision;
 
 	precision = check_precision(str, i, j);	
+	temp  = 0;
 	temp2 = 0;
 	if (str[j] == 'd' || str[j] == 'i')
 		temp2 = define_negative(args);
@@ -33,6 +34,11 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 			write(1, "(null)", 7);
 			return (7);
 		}
+	}
+	if ((void *)temp == 0 && str[j] == 'p')
+	{
+		write(1, "(nil)", 5);
+		return (5);
 	}
 	count = 0;
 	if (check_flag_plus(i, j, str) == 1)

@@ -32,10 +32,8 @@ int	ft_strlen(char *str, int precision)
 
 int	ft_hexa_len(unsigned long long int temp)
 {
-	char	*base;
 	int	count;
 
-	base = "0123456789abcdef";
 	count = 0;
 	if (temp >= 16)
 		count += ft_hexa_len(temp / 16);
@@ -44,6 +42,24 @@ int	ft_hexa_len(unsigned long long int temp)
 
 }
 
+int	ft_nb_u_len(unsigned int n)
+{
+	int count;
+	unsigned int	nb;
+
+	count = 0;
+	nb = n;
+	if (n == 0)
+		return(1);
+	while (nb != 0)
+	{
+		nb /= 10;
+		count++;
+	}
+	return (count);
+
+}	
+
 int	ft_nb_len(int n)
 {
 	int count;
@@ -51,6 +67,8 @@ int	ft_nb_len(int n)
 
 	count = 0;
 	nb = n;
+	if (n == 0)
+		return(1);
 	while (nb != 0)
 	{
 		nb /= 10;
@@ -64,8 +82,10 @@ int	ft_get_len(unsigned long long int temp, int j, const char *str, int precisio
 
 	int	result;
 
-	if (str[j] == 'i' || str[j] == 'd' || str[j] == 'u')
-		return (ft_nb_len((int)temp));
+	if (str[j] == 'i' || str[j] == 'd')
+			return (ft_nb_len((int)temp));
+	if (str[j] == 'u')
+			return (ft_nb_u_len((unsigned int) temp));
 	if (str[j] == 's')
 	{
 		if ((char *)temp == 0)
