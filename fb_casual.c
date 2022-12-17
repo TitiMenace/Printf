@@ -20,7 +20,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	int	temp2;
 	int	pre_count;
 	int	precision;
-
+	
 	precision = check_precision(str, i, j);	
 	temp  = 0;
 	temp2 = 0;
@@ -29,10 +29,13 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	else
 	{
 		temp = define_args(args, j, str);
-		if ((char *)temp == NULL && str[j] == 's')
+		if (str[j] == 's')
 		{
-			write(1, "(null)", 7);
-			return (7);
+			if ((char *)temp == NULL)
+			{
+				write(1, "(null)", 7);
+				return (7);
+			}
 		}
 	}
 	if ((void *)temp == 0 && str[j] == 'p')
@@ -43,7 +46,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	count = 0;
 	if (check_flag_plus(i, j, str) == 1)
 		count++;	
-	if (check_flag_hashtag(i, j, str) == 1)
+	if (check_flag_hashtag(i, j, str) == 1 && (unsigned int)temp != 0)
 		count += 2;
 	if (check_flag_blank(i, j, str) == 1)
 		count++;
@@ -73,7 +76,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 		}
 		if (check_flag_plus(i, j, str) == 1)
 			write(1, "+", 1);
-		if (check_flag_hashtag(i, j, str) == 1)
+		if (check_flag_hashtag(i, j, str) == 1 && (unsigned int)temp != 0)
 		{	
 			if (str[j] == 'x')
 				write(1, "0x", 2);

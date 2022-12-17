@@ -17,7 +17,7 @@ int	small_atoi(const char *str, int i)
 	int	k;
 
 	k = 0;
-	while (str[i] >= '1' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		k = k * 10 + (str[i] - 48);
 		i++;

@@ -70,9 +70,9 @@ int	ft_printf(const char *str,...)
 {
 	int i;
 	int j;
-	i = ft_printf("_%-11x_", (unsigned int)LONG_MAX + 1);
+	i = ft_printf("_%# 1s_", "");
 	printf("\n\n");
-	j = printf("_%-11x_", (unsigned int)LONG_MAX + 1);
+	j = printf("_% 1s_", "");
 	printf("\n\n");
 	printf("%d", i);
 	printf("\n\n");

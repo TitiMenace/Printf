@@ -17,7 +17,7 @@ int	check_flag_zero(int i, int j, const char *str)
 	int	temp;
 
 	temp = i;
-	while (temp < j)
+	while (temp < j && str[temp] != '.')
 	{
 		if (str[temp] == '0')
 			return (1);
