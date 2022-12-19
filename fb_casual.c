@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/19 03:21:49 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/19 04:25:24 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,19 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	int	temp2;
 	int	pre_count;
 	int	precision;
-	
+	unsigned long long int	temp3;
+
+	temp3 = (unsigned long long int)"(null)";
 	precision = check_precision(str, i, j);	
 	temp  = 0;
 	temp2 = 0;
+	len_arg = 0;
 	if (str[j] == 'd' || str[j] == 'i')
 		temp2 = define_negative(args);
 	else
-	{
 		temp = define_args(args, j, str);
-		if (str[j] == 's')
-		{
-			if ((char *)temp == NULL)
-			{
-				write(1, "(null)", 7);
-				return (7);
-			}
-		}
-	}
+	if (temp == temp3 && (precision >= 0 && precision < 6))
+		return (0);
 	if ((void *)temp == 0 && str[j] == 'p')
 		temp = (unsigned long long int)"(nil)";
 	count = 0;
@@ -54,7 +49,9 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 	}
 	if (temp2 > 0)
 		temp = (unsigned long long int)temp2;
-	len_arg = ft_get_len(temp, j, str, precision);
+	
+	if (!(temp == 0 && precision == 0))
+		len_arg = ft_get_len(temp, j, str, precision);
 	if (str[j] != 's')
 	{	
 		count += len_arg;
@@ -65,10 +62,9 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 			pre_count++;
 			count++;
 		}
-		while (pre_count < check_width_field(str, i, j))
+		while (count < check_width_field(str, i, j))
 		{
 			write(1, " ", 1);
-			pre_count++;
 			count++;
 		}
 		if (check_flag_plus(i, j, str) == 1)
@@ -100,6 +96,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 			count++;
 		}
 	}
-	ft_print_args(str, j, temp, len_arg);
+	if (!(temp == 0 && precision == 0))
+		ft_print_args(str, j, temp, len_arg);
 	return (count);
 }

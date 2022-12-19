@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/12 04:32:11 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/19 04:27:38 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ int	fb_minus(va_list args, int i, int j, const char *str)
 			}
 			temp = (unsigned long long int)temp2;
 	}
-	len_arg = ft_get_len(temp, j, str, precision);
+	if (!(temp == 0 && precision == 0))
+		len_arg = ft_get_len(temp, j, str, precision);
 	pre_count = len_arg;
 	if (str[j] != 's')
 	{
@@ -80,7 +81,8 @@ int	fb_minus(va_list args, int i, int j, const char *str)
 	}
 	
 	count += pre_count;
-	ft_print_args(str, j, temp, len_arg);
+	if  (!(temp == 0 && precision == 0))
+		ft_print_args(str, j, temp, len_arg);
 	while (count < check_width_field(str, i, j))
 	{
 		write(1, " ", 1);

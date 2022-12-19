@@ -3,5 +3,7 @@
 
 int	main()
 {
-	printf(" %.10d ", (int)LONG_MAX);
+	int i;
+	i = printf("%d", 0);
+	printf("\n%d\n", i);
 }
