@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:26:05 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/12 05:22:20 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/19 03:25:39 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,10 @@ int	ft_get_len(unsigned long long int temp, int j, const char *str, int precisio
 {
 
 	int	result;
+	int	temp2;
+
+	temp2 = (unsigned long long int)"(nil)";
+
 
 	if (str[j] == 'i' || str[j] == 'd')
 			return (ft_nb_len((int)temp));
@@ -96,8 +100,14 @@ int	ft_get_len(unsigned long long int temp, int j, const char *str, int precisio
 	if (str[j] == 'c')
 		return (1);
 	if (str[j] == 'p')
+	{
+		if (temp == temp2)
+			return(5);
 		return (ft_hexa_len(temp) + 2);
+	}
 	if (str[j] == 'x' || str[j] == 'X')
+	{
 		return (ft_hexa_len(temp));
+	}
 	return (0);
 }

@@ -6,11 +6,21 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 10:57:46 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 10:50:01 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/19 02:53:50 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+	
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
 
 int	check_charset(char c, char *set)
 {

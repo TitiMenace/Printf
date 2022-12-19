@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 22:59:18 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/12 05:24:14 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/12/19 03:00:15 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,10 @@ int	ft_putnstr(char *str, int n)
 
 int	ft_print_args(const char *str, int j, unsigned long long int temp, int count)
 {
+	unsigned long long int	temp2;
+
+	temp2 = (unsigned long long int)"(nil)";
+	
 	if (str[j] == 'i' || str[j] == 'd' || str[j] == 'u')
 	{
 		ft_putnbr((unsigned int)temp);
@@ -108,6 +112,8 @@ int	ft_print_args(const char *str, int j, unsigned long long int temp, int count
 		return (ft_putnbr_hexa_maj((unsigned int)temp));
 	if (str[j] == 'p')
 	{
+		if (temp == temp2)
+			return (ft_putnstr("(nil)", 5));
 		return (ft_putaddress(temp));
 	}
 	if (str[j] == 's')
