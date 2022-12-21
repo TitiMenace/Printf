@@ -19,6 +19,8 @@ int	fb_zero(va_list args, const char *str, int i, int j)
 	int	temp2;
 	int	precision;
 
+	temp = 0;
+	temp2 = 0;	
 	precision = check_precision(str, i, j);
 	if (str[j] == 'd' || str[j] == 'i')
 		temp2 = define_negative(args);

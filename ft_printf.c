@@ -70,9 +70,9 @@ int	ft_printf(const char *str,...)
 {
 	int i;
 	int j;
-	i = ft_printf("%01.d", 0);
+	i = ft_printf("%-c", 0);
 	printf("\n\n");
-	j = printf("%01.d", 0);
+	j = printf("%-c", 0);
 	printf("\n\n");
 	printf("%d", i);
 	printf("\n\n");

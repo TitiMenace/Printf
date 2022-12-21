@@ -21,6 +21,7 @@ int	fb_minus(va_list args, int i, int j, const char *str)
 	int	pre_count;
 	int	precision;
 
+	len_arg  = 0;
 	temp = 0;
 	precision = check_precision(str, i, j);
 	if (str[j] == 'd' || str[j] == 'i')
@@ -63,7 +64,7 @@ int	fb_minus(va_list args, int i, int j, const char *str)
 			}
 			temp = (unsigned long long int)temp2;
 	}
-	if (!(temp == 0 && precision == 0))
+	if (!(temp == 0  && precision == 0))
 		len_arg = ft_get_len(temp, j, str, precision);
 	pre_count = len_arg;
 	if (str[j] != 's')

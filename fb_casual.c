@@ -31,10 +31,10 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 		temp2 = define_negative(args);
 	else
 		temp = define_args(args, j, str);
-	if (temp == temp3 && (precision >= 0 && precision < 6))
-		return (0);
-	if ((void *)temp == 0 && str[j] == 'p')
-		temp = (unsigned long long int)"(nil)";
+	//if (temp == temp3 && (precision >= 0 && precision < 6))
+		//return (0);
+	//if ((void *)temp == 0 && str[j] == 'p')
+	//	temp = (unsigned long long int)"(nil)";
 	count = 0;
 	if (check_flag_plus(i, j, str) == 1)
 		count++;	

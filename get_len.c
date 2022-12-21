@@ -81,7 +81,7 @@ int	ft_get_len(unsigned long long int temp, int j, const char *str, int precisio
 {
 
 	int	result;
-	int	temp2;
+	unsigned long long int	temp2;
 
 	temp2 = (unsigned long long int)"(nil)";
 

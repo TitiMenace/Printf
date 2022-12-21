@@ -28,7 +28,7 @@ $(NAME)		:	$(OBJ)
 			ar rc $(NAME) $(OBJ)
 
 %.o		:	%.c
-			@$(CC) -g -c $< -o $@
+			@$(CC) -Wall -Wextra -Werror -g -c $< -o $@
 
 clean		:
 			rm -f $(OBJ)
