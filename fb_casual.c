@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/04 17:20:22 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 19:31:36 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,24 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 		return (0);
 	if ((void *)temp == 0 && str[j] == 'p')
 		temp = (unsigned long long int)"(nil)";
+	if (str[j] == 'd' || str[j] == 'i')
+		temp = (unsigned long long int)temp2;	
 	count = 0;
-	if (check_flag_plus(i, j, str) == 1)
-		count++;	
-	if (check_flag_hashtag(i, j, str) == 1 && (unsigned int)temp != 0)
-		count += 2;
-	if (check_flag_blank(i, j, str) == 1)
-		count++;
 	if (temp2 < 0)
 	{
 		count++;
 		temp = (unsigned long long int)-temp2;
 	}
-	if (temp2 > 0)
-		temp = (unsigned long long int)temp2;
+	else
+	{
+		if (check_flag_plus(i, j, str) == 1)
+			count++;	
+		if (check_flag_hashtag(i, j, str) == 1 && (unsigned int)temp != 0)
+			count += 2;
+		if (check_flag_blank(i, j, str) == 1)
+			count++;
+	}
+	
 	
 	if (!(temp == 0 && precision == 0))
 		len_arg = ft_get_len(temp, j, str, precision);
@@ -67,19 +71,22 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 			write(1, " ", 1);
 			count++;
 		}
-		if (check_flag_plus(i, j, str) == 1)
-			write(1, "+", 1);
-		if (check_flag_hashtag(i, j, str) == 1 && (unsigned int)temp != 0)
-		{	
-			if (str[j] == 'x')
-				write(1, "0x", 2);
-			else
-				write(1, "0X", 2);
-		}
-		if (check_flag_blank(i, j, str) == 1 && temp >= 0)
-			write(1, " ", 1);
 		if (temp2 < 0)
 			write(1, "-", 1);
+		else
+		{
+			if (check_flag_plus(i, j, str) == 1)
+				write(1, "+", 1);
+			if (check_flag_hashtag(i, j, str) == 1 && (unsigned int)temp != 0)
+			{	
+				if (str[j] == 'x')
+					write(1, "0x", 2);
+				else
+					write(1, "0X", 2);
+			}
+			if (check_flag_blank(i, j, str) == 1 && temp >= 0)
+				write(1, " ", 1);
+		}
 		pre_count = len_arg;
 		while (pre_count < precision && precision >= 0)
 		{

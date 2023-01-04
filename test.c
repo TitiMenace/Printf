@@ -4,7 +4,7 @@
 int	main()
 {
 	int i;
-	i = printf("% d", -1);
+	i = printf("%0 d", -1);
 
 	printf("\n%d\n", i);
 }

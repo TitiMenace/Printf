@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/19 04:27:38 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 19:16:17 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,35 +35,37 @@ int	fb_minus(va_list args, int i, int j, const char *str)
 	}
 
 	count = 0;
-	if (check_flag_plus(i, j, str) == 1)
-	{
-		write(1, "+", 1);
-		count++;	
-	}
-	if (check_flag_hashtag(i, j, str) == 1)
-	{
-		if (str[j] == 'x')
-			write(1, "0x", 2);
-		count += 2;
-		if (str[j] == 'X')
-			write(1, "0X", 2);
-		count += 2;
-	}
-	if (check_flag_blank(i, j, str) == 1)
-	{
-		write(1, " ", 1);
-		count++;
-	}
 	if (str[j] == 'd' || str[j] == 'i')
+		temp = (unsigned long long int)temp2;
+	if (temp2 < 0)
 	{
-			if (temp2 < 0)
-			{
-				write(1, "-", 1);
-				count++;
-				temp2 = -temp2;
-			}
-			temp = (unsigned long long int)temp2;
+		write(1, "-", 1);
+		count++;
+		temp = (unsigned long long int)-temp2;
 	}
+	else
+	{
+		if (check_flag_plus(i, j, str) == 1)
+		{
+			write(1, "+", 1);
+			count++;	
+		}
+		if (check_flag_hashtag(i, j, str) == 1)
+		{
+			if (str[j] == 'x')
+				write(1, "0x", 2);
+			count += 2;
+			if (str[j] == 'X')
+				write(1, "0X", 2);
+			count += 2;
+		}
+		if (check_flag_blank(i, j, str) == 1)
+		{
+			write(1, " ", 1);
+			count++;
+		}
+	}
+	
 	if (!(temp == 0  && precision == 0))
 		len_arg = ft_get_len(temp, j, str, precision);
 	pre_count = len_arg;
