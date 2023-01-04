@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/19 04:47:59 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:26:19 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ int	ft_printf(const char *str,...)
 {
 	int i;
 	int j;
-	i = ft_printf("%-c", 0);
+	i = ft_printf("%01.2d", 0);
 	printf("\n\n");
-	j = printf("%-c", 0);
+	j = printf("%01.2d", 0);
 	printf("\n\n");
 	printf("%d", i);
 	printf("\n\n");
