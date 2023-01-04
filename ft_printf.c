@@ -1,17 +1,16 @@
-/*************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 22:05:03 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/04 17:26:19 by tschecro         ###   ########.fr       */
+/*   Created: 2023/01/04 20:18:27 by tschecro          #+#    #+#             */
+/*   Updated: 2023/01/04 20:49:45 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdlib.h>
 
 void	init_parse(const char *str, int *i, int *count)
 {
@@ -32,14 +31,12 @@ int	second_parse(int *j, const char *str)
 	return (0);
 }	
 
-int	ft_printf(const char *str,...)
+int	ft_printf(const char *str, ...)
 {
-	va_list args;
-	int	i;
-	int	j;
-	int	count;
-
-	//setbuf(stdout, NULL);
+	va_list	args;
+	int		i;
+	int		j;
+	int		count;
 
 	va_start(args, str);
 	i = 0;
@@ -48,31 +45,27 @@ int	ft_printf(const char *str,...)
 	{
 		init_parse(str, &i, &count);
 		j = i;
-		if (str[i] == '%')
+		if (str[i] != '%')
+			continue ;
+		j++;
+		second_parse(&j, str);
+		if (check_charset(str[j], "cdiupsxX%") == 1)
 		{
-			j++;
-			second_parse(&j, str);
-			if (check_charset(str[j], "cdiupsxX%") == 1)
-			{
-				count += fill_buffer(args, i, j, str);
-				i = j + 1;
-			}
-			else
-				init_parse(str, &i, &count);
+			count += fill_buffer(args, i, j, str);
+			i = j + 1;
 		}
+		else
+			init_parse(str, &i, &count);
 	}
-	va_end(args);
-	return (count);
+	return (va_end(args), count);
 }
-#include <stdio.h>
-#include <limits.h>
 /*int	main()
 {
 	int i;
 	int j;
-	i = ft_printf("%01.2d", 0);
+	i = ft_printf("jem'appellleon%mais%d", 1);
 	printf("\n\n");
-	j = printf("%01.2d", 0);
+	j = printf("jem'appellleon%mais%d", 1);
 	printf("\n\n");
 	printf("%d", i);
 	printf("\n\n");
