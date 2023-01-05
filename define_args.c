@@ -6,13 +6,11 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 23:42:44 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/11 10:48:03 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:55:16 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
 
 int	define_negative(va_list args)
 {
@@ -39,16 +37,14 @@ unsigned long long int	define_args(va_list args, int j, const char *str)
 	if (str[j] == 's')
 	{
 		temp = (unsigned long long int)va_arg(args, char *);
-		if (temp == (unsigned long long int)NULL)
+		if (temp == (unsigned long long int) NULL)
 				temp = (unsigned long long int)"(null)";
 		return (temp);
 	}
 	if (str[j] == 'x' || str[j] == 'X' || str[j] == 'u')
 	{
 		temp = (unsigned long long int)va_arg(args, unsigned int);
-		return (temp);	
+		return (temp);
 	}
 	return (0);
 }
-
-

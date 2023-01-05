@@ -6,13 +6,14 @@
 #    By: tschecro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 01:52:49 by tschecro          #+#    #+#              #
-#    Updated: 2022/12/12 02:04:59 by tschecro         ###   ########.fr        #
+#    Updated: 2023/01/05 16:44:57 by tschecro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC		=	./print_args.c ./fb_casual.c ./fb_minus.c ./flags_fonction.c \
 			./ft_printf.c ./printf_utils.c ./get_len.c ./fill_buffer.c \
-			./define_args.c ./fb_zero.c ./check_width.c
+			./define_args.c ./fb_zero.c ./check_width.c \
+			./print_arg_utils.c ./flag_utils.c
 
 HEADER		=	ft_printf.h
 

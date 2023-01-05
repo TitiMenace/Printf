@@ -6,11 +6,16 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/04 19:31:36 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:10:13 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int fill_margin(const char *str, int j, int i, unsigned long long int temp)
+{
+	
+}
 
 int	fb_casual(va_list args, const char *str, int i, int j)
 {
@@ -44,22 +49,12 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 		temp = (unsigned long long int)-temp2;
 	}
 	else
-	{
-		if (check_flag_plus(i, j, str) == 1)
-			count++;	
-		if (check_flag_hashtag(i, j, str) == 1 && (unsigned int)temp != 0)
-			count += 2;
-		if (check_flag_blank(i, j, str) == 1)
-			count++;
-	}
-	
-	
+		count = ft_count_flags(str, j, i, temp);	
 	if (!(temp == 0 && precision == 0))
 		len_arg = ft_get_len(temp, j, str, precision);
 	if (str[j] != 's')
 	{	
 		count += len_arg;
-
 		pre_count = len_arg;
 		while (pre_count < precision && precision >= 0)
 		{
@@ -74,19 +69,7 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 		if (temp2 < 0)
 			write(1, "-", 1);
 		else
-		{
-			if (check_flag_plus(i, j, str) == 1)
-				write(1, "+", 1);
-			if (check_flag_hashtag(i, j, str) == 1 && (unsigned int)temp != 0)
-			{	
-				if (str[j] == 'x')
-					write(1, "0x", 2);
-				else
-					write(1, "0X", 2);
-			}
-			if (check_flag_blank(i, j, str) == 1 && temp >= 0)
-				write(1, " ", 1);
-		}
+			ft_print_flags(str, j, i, temp);	
 		pre_count = len_arg;
 		while (pre_count < precision && precision >= 0)
 		{

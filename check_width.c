@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:48:11 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/19 04:11:22 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/05 16:02:41 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	small_atoi(const char *str, int i)
 
 int	check_precision(const char *str, int i, int j)
 {
-	int count;
+	int	count;
 
 	count = -1;
 	while (i < j)
 	{
-		if(str[i] == '.')
+		if (str[i] == '.')
 		{
 			i++;
 			count = small_atoi(str, i);

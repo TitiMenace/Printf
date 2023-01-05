@@ -6,20 +6,15 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 22:59:18 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/19 03:00:15 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:48:14 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 void	ft_putnbr(unsigned int temp)
 {
-	unsigned int nb;
+	unsigned int	nb;
 
 	nb = temp;
 	if (nb <= 9)
@@ -29,52 +24,6 @@ void	ft_putnbr(unsigned int temp)
 		ft_putnbr(nb / 10);
 		ft_putnbr(nb % 10);
 	}
-}
-
-int	ft_putnbr_hexa(unsigned int nb)
-{
-	char	*hexa;
-	int	count;
-
-	count = 0;
-	hexa = "0123456789abcdef";
-	if (nb >= 16)
-		count += ft_putnbr_hexa(nb / 16);
-	count += write(1, &hexa[nb % 16], 1);
-	return (count);
-}
-
-int	ft_putnbr_hexa_maj(unsigned int nb)
-{
-	char	*hexa;
-	int	count;
-
-	count = 0;
-	hexa = "0123456789ABCDEF";
-	if (nb >= 16)
-		count += ft_putnbr_hexa_maj(nb / 16);
-	count += write(1, &hexa[nb % 16], 1);
-	return (count);
-}
-
-static int	ft_putadd(unsigned long long int temp)
-{
-	char	*base;
-	int	count;
-
-	base = "0123456789abcdef";
-	count = 0;
-	if (temp >= 16)
-		count += ft_putadd(temp / 16);
-	count += write(1, &base[temp % 16], 1);
-	return (count);
-
-}
-
-int	ft_putaddress(unsigned long long int temp)
-{
-	write(1, "0x", 2);
-	return (ft_putadd(temp) + 2);
 }
 
 int	ft_putnstr(char *str, int n)
@@ -92,10 +41,6 @@ int	ft_putnstr(char *str, int n)
 
 int	ft_print_args(const char *str, int j, unsigned long long int temp, int count)
 {
-	unsigned long long int	temp2;
-
-	temp2 = (unsigned long long int)"(nil)";
-	
 	if (str[j] == 'i' || str[j] == 'd' || str[j] == 'u')
 	{
 		ft_putnbr((unsigned int)temp);
@@ -106,21 +51,13 @@ int	ft_print_args(const char *str, int j, unsigned long long int temp, int count
 		ft_putchar((char)temp);
 		return (1);
 	}
-	if (str[j] == 'x')
-		return (ft_putnbr_hexa(temp));
-	if (str[j] == 'X')
-		return (ft_putnbr_hexa_maj((unsigned int)temp));
-	if (str[j] == 'p')
-	{
-		if (temp == temp2)
-			return (ft_putnstr("(nil)", 5));
-		return (ft_putaddress(temp));
-	}
+	if (str[j] == 'x' || str[j] == 'X' || str[j] == 'p')
+		return (ft_put_hexa(str, j, temp));
 	if (str[j] == 's')
 	{
 		if ((char *)temp == 0)
 			return (0);
-		return ft_putnstr((char *)temp, count);
+		return (ft_putnstr((char *)temp, count));
 	}
 	return (0);
 }

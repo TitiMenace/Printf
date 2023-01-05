@@ -6,16 +6,16 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 10:57:46 by tschecro          #+#    #+#             */
-/*   Updated: 2022/12/19 02:53:50 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:52:20 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
-	
+
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
@@ -47,4 +47,9 @@ int	ft_putstr(const char *str)
 		i++;
 	}
 	return (i);
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
