@@ -1,10 +1,9 @@
 #include <stdio.h>
-#include <limits.h>
 
 int	main()
 {
-	int i;
-	i = printf("%0 d", -1);
+	char	*s1;
+	s1 = NULL;
 
-	printf("\n%d\n", i);
+	printf("%.2s", s1);
 }

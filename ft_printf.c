@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:18:27 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/04 20:49:45 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 01:12:25 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,15 @@ int	ft_printf(const char *str, ...)
 	}
 	return (va_end(args), count);
 }
+
 /*int	main()
 {
 	int i;
 	int j;
-	i = ft_printf("jem'appellleon%mais%d", 1);
+	char *s1 = NULL;
+	i = ft_printf("%4.3s", s1);
 	printf("\n\n");
-	j = printf("jem'appellleon%mais%d", 1);
+	j = printf("%4.3s", s1);
 	printf("\n\n");
 	printf("%d", i);
 	printf("\n\n");

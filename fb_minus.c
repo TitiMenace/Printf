@@ -6,90 +6,84 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/04 19:16:17 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 02:13:38 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	fb_minus(va_list args, int i, int j, const char *str)
+void	init_helper_minus(const char *str, int i, int j, t_help *helper)
 {
-	int	count;
-	int	len_arg;
-	unsigned long long int	temp;
-	int	temp2;
-	int	pre_count;
-	int	precision;
+	helper->temp = 0;
+	helper->checknull = (ull_int)"(null)";
+	helper->tempneg = 0;
+	helper->count = 0;
+	helper->len_arg = 0;
+	helper->precision = check_precision(str, i, j);
+	helper->wfield = check_width_field(str, i, j);
+	helper->precount = 0;
+}
 
-	len_arg  = 0;
-	temp = 0;
-	precision = check_precision(str, i, j);
-	if (str[j] == 'd' || str[j] == 'i')
-		temp2 = define_negative(args);
-	else
-		temp = define_args(args, j, str);
-	if ((void *)temp == 0 && str[j] == 'p')
-	{
-		write(1, "(nil)", 5);
-		return (5);
-	}
-
-	count = 0;
-	if (str[j] == 'd' || str[j] == 'i')
-		temp = (unsigned long long int)temp2;
-	if (temp2 < 0)
-	{
-		write(1, "-", 1);
-		count++;
-		temp = (unsigned long long int)-temp2;
-	}
-	else
-	{
-		if (check_flag_plus(i, j, str) == 1)
-		{
-			write(1, "+", 1);
-			count++;	
-		}
-		if (check_flag_hashtag(i, j, str) == 1)
-		{
-			if (str[j] == 'x')
-				write(1, "0x", 2);
-			count += 2;
-			if (str[j] == 'X')
-				write(1, "0X", 2);
-			count += 2;
-		}
-		if (check_flag_blank(i, j, str) == 1)
-		{
-			write(1, " ", 1);
-			count++;
-		}
-	}
-	
-	if (!(temp == 0  && precision == 0))
-		len_arg = ft_get_len(temp, j, str, precision);
-	pre_count = len_arg;
+void	fill_margin_minus(const char *str, int j, t_help *helper)
+{
 	if (str[j] != 's')
 	{
-		while (pre_count < check_precision(str, i, j))
+		while (helper->precount < helper->precision)
 		{
 			write(1, "0", 1);
-			pre_count++;
+			helper->precount++;
 		}	
 	}
 	else
 	{
-		while (precision >= 0 && precision < len_arg)
-			len_arg--;
+		while (helper->precision >= 0 && helper->precision < helper->len_arg)
+			helper->len_arg--;
 	}
-	
-	count += pre_count;
-	if  (!(temp == 0 && precision == 0))
-		ft_print_args(str, j, temp, len_arg);
-	while (count < check_width_field(str, i, j))
+	helper->count += helper->precount;
+	if (!(helper->temp == 0 && helper->precision == 0))
+		ft_print_args(str, j, helper->temp, helper->len_arg);
+	while (helper->count < helper->wfield)
 	{
 		write(1, " ", 1);
-		count++;
+		helper->count++;
 	}
-	return (count);	
+}
+
+void	check_negative(const char *str, int i, int j, t_help *helper)
+{
+	if (helper->tempneg < 0)
+	{
+		write(1, "-", 1);
+		helper->count++;
+		helper->temp = (ull_int) - helper->tempneg;
+	}
+	else
+	{
+		helper->count = ft_count_flags(str, j, i, helper->temp);
+		ft_print_flags(str, j, i, helper->temp);
+	}
+}
+
+int	fb_minus(va_list args, int i, int j, const char *str)
+{
+	t_help	helper;
+
+	init_helper_minus(str, i, j, &helper);
+	if (str[j] == 'd' || str[j] == 'i')
+		helper.tempneg = define_negative(args);
+	else
+		helper.temp = define_args(args, j, str);
+	if ((void *)helper.temp == 0 && str[j] == 'p')
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	if (str[j] == 'd' || str[j] == 'i')
+		helper.temp = (ull_int)helper.tempneg;
+	check_negative(str, i, j, &helper);
+	if (!(helper.temp == 0 && helper.precision == 0))
+		helper.len_arg = ft_get_len(helper.temp, j, str, helper.precision);
+	helper.precount = helper.len_arg;
+	fill_margin_minus(str, j, &helper);
+	return ((int)helper.count);
 }

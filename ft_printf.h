@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2023/01/05 16:46:31 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:24:13 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,21 @@
 
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdio.h>
+
+typedef	unsigned long long int ull_int;
+
+typedef	struct	s_help
+{
+	ull_int	temp;
+	ull_int	checknull;
+	int tempneg;
+	int	count;
+	int	len_arg;
+	int precision;
+	int	wfield;
+	int precount;
+}				t_help;
 
 /* -------------------------------------------------------------------------- */
 /*                           FILE = ./print_args.c                            */

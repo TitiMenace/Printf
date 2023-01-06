@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 23:42:44 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/05 15:55:16 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 01:51:28 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ unsigned long long int	define_args(va_list args, int j, const char *str)
 	if (str[j] == 's')
 	{
 		temp = (unsigned long long int)va_arg(args, char *);
-		if (temp == (unsigned long long int) NULL)
-				temp = (unsigned long long int)"(null)";
+		if (temp == (ull_int) NULL)
+			temp = (ull_int)"(null)";
 		return (temp);
 	}
 	if (str[j] == 'x' || str[j] == 'X' || str[j] == 'u')
