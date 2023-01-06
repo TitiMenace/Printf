@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:26:05 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 01:48:37 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 03:28:08 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_nb_len(int n)
 	return (count);
 }
 
-int	ft_get_len(unsigned long long int temp, int j, const char *str, int precision)
+int	ft_get_len(ull_int temp, int j, const char *str, int precision)
 {
 	unsigned long long int	temp2;
 

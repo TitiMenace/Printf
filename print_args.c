@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 22:59:18 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 01:48:58 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 03:28:33 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_putnstr(char *str, int n)
 	return (i);
 }
 
-int	ft_print_args(const char *str, int j, unsigned long long int temp, int count)
+int	ft_print_args(const char *str, int j, ull_int temp, int count)
 {
 	if (str[j] == 'i' || str[j] == 'd' || str[j] == 'u')
 	{
