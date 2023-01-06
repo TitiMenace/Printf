@@ -6,13 +6,13 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:25:21 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/05 15:51:23 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 03:53:25 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putadd(unsigned long long int temp)
+static int	ft_putadd(t_ull_int temp)
 {
 	char	*base;
 	int		count;
@@ -25,7 +25,7 @@ static int	ft_putadd(unsigned long long int temp)
 	return (count);
 }
 
-int	ft_putaddress(unsigned long long int temp)
+int	ft_putaddress(t_ull_int temp)
 {
 	write(1, "0x", 2);
 	return (ft_putadd(temp) + 2);
@@ -57,11 +57,11 @@ int	ft_putnbr_hexa_maj(unsigned int nb)
 	return (count);
 }
 
-int	ft_put_hexa(const char *str, int j, unsigned long long int temp)
+int	ft_put_hexa(const char *str, int j, t_ull_int temp)
 {
-	unsigned long long int	temp2;
+	t_ull_int	temp2;
 
-	temp2 = (unsigned long long int)"(nil)";
+	temp2 = (t_ull_int)"(nil)";
 	if (str[j] == 'x')
 		return (ft_putnbr_hexa(temp));
 	if (str[j] == 'X')

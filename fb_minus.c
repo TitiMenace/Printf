@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:44:13 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 02:13:38 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 03:55:38 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_helper_minus(const char *str, int i, int j, t_help *helper)
 {
 	helper->temp = 0;
-	helper->checknull = (ull_int)"(null)";
+	helper->checknull = (t_ull_int)"(null)";
 	helper->tempneg = 0;
 	helper->count = 0;
 	helper->len_arg = 0;
@@ -55,7 +55,7 @@ void	check_negative(const char *str, int i, int j, t_help *helper)
 	{
 		write(1, "-", 1);
 		helper->count++;
-		helper->temp = (ull_int) - helper->tempneg;
+		helper->temp = (t_ull_int) - helper->tempneg;
 	}
 	else
 	{
@@ -79,7 +79,7 @@ int	fb_minus(va_list args, int i, int j, const char *str)
 		return (5);
 	}
 	if (str[j] == 'd' || str[j] == 'i')
-		helper.temp = (ull_int)helper.tempneg;
+		helper.temp = (t_ull_int)helper.tempneg;
 	check_negative(str, i, j, &helper);
 	if (!(helper.temp == 0 && helper.precision == 0))
 		helper.len_arg = ft_get_len(helper.temp, j, str, helper.precision);

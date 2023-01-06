@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:54:49 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 01:54:08 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 03:50:06 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_helper(const char *str, int i, int j, t_help *helper)
 {
 	helper->temp = 0;
-	helper->checknull = (ull_int)"(null)";
+	helper->checknull = (t_ull_int)"(null)";
 	helper->tempneg = 0;
 	helper->count = 0;
 	helper->len_arg = 0;
@@ -80,13 +80,13 @@ int	fb_casual(va_list args, const char *str, int i, int j)
 		&& (helper.precision >= 0 && helper.precision < 6))
 		return (0);
 	if ((void *)helper.temp == 0 && str[j] == 'p')
-		helper.temp = (ull_int)"(nil)";
+		helper.temp = (t_ull_int)"(nil)";
 	if (str[j] == 'd' || str[j] == 'i')
-		helper.temp = (ull_int)helper.tempneg;
+		helper.temp = (t_ull_int)helper.tempneg;
 	if (helper.tempneg < 0)
 	{
 		helper.count++;
-		helper.temp = (ull_int) - helper.tempneg;
+		helper.temp = (t_ull_int) - helper.tempneg;
 	}
 	else
 		helper.count = ft_count_flags(str, j, i, helper.temp);

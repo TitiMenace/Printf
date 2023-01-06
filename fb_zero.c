@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 02:39:41 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 03:25:56 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 03:56:13 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_helper_zero(const char *str, int i, int j, t_help *helper)
 {
 	helper->temp = 0;
-	helper->checknull = (ull_int)"(null)";
+	helper->checknull = (t_ull_int)"(null)";
 	helper->tempneg = 0;
 	helper->count = 0;
 	helper->len_arg = 0;
@@ -67,7 +67,7 @@ void	flag_count(const char *str, int i, int j, t_help *helper)
 	if (helper->tempneg < 0)
 	{
 		helper->count++;
-		helper->temp = (ull_int) - helper->tempneg;
+		helper->temp = (t_ull_int) - helper->tempneg;
 	}
 	else
 	{	
@@ -87,7 +87,7 @@ int	fb_zero(va_list args, const char *str, int i, int j)
 	else
 		helper.temp = define_args(args, j, str);
 	if (str[j] == 'd' || str[j] == 'i')
-		helper.temp = (ull_int)helper.tempneg;
+		helper.temp = (t_ull_int)helper.tempneg;
 	flag_count(str, i, j, &helper);
 	helper.len_arg = ft_get_len(helper.temp, j, str, helper.precision);
 	if (helper.precision == -1)

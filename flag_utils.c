@@ -6,14 +6,14 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 16:30:06 by tschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 03:27:37 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 03:56:45 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int	ft_count_flags(const char *str, int j, int i, ull_int temp)
+int	ft_count_flags(const char *str, int j, int i, t_ull_int temp)
 {
 	int	count;
 
@@ -27,7 +27,7 @@ int	ft_count_flags(const char *str, int j, int i, ull_int temp)
 	return (count);
 }
 
-void	ft_print_flags(const char *str, int j, int i, ull_int temp)
+void	ft_print_flags(const char *str, int j, int i, t_ull_int temp)
 {
 	if (check_flag_plus(i, j, str) == 1)
 		write(1, "+", 1);
